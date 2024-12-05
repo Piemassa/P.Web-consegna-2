@@ -1,0 +1,135 @@
+/*GENERALI*/ 
+    
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.col-md-4 {
+  margin-right: 0 !important; 
+  margin-left: 0 !important; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; 
+}
+
+.col-md-4:not(:last-child) {
+  padding-right: 10px;
+}
+
+.col-md-4:not(:first-child) {
+  padding-left: 10px; 
+}
+
+
+/*HOME*/
+
+/*foto del team*/
+
+.team-photo-small {
+width: 190px; 
+height: 190px; 
+object-fit: cover; 
+margin-bottom: 15px;
+}
+
+
+
+/*SALE*/
+
+/*adattamento immagini portfolio (sale)*/
+
+.img-portfolio{
+width: 100%; /* Fa sì che l'immagine occupi tutta la larghezza della card */
+height: 280px; /* Imposta un'altezza fissa per tutte le immagini */
+object-fit: cover; /* Rende l'immagine scalata per riempire il contenitore senza distorsioni */
+}
+
+
+
+
+/*PRENOTA*/
+
+/*badge categoria (prenota)*/
+
+.badge{
+top: 0.5rem; 
+right: 0.5rem
+}
+
+.position-absolute{
+top: 0.5rem; 
+right: 0.5rem; 
+display: flex; 
+flex-direction: row; 
+gap: 0.25rem;
+}
+
+
+
+/*uniformare la grandezza delle immagini dei prodotti*/
+
+.card-img-top {
+width: 100%; 
+height: 215px; 
+object-fit: cover; 
+}
+
+.card-body {
+text-align: center;
+}
+
+
+
+
+/*dettagli masterclass (con simboli)*/
+
+.details-highlight {
+font-size: 0.850rem;
+line-height: 1.5;
+}
+
+.details-highlight p {
+margin: 0.5rem 0;
+}
+
+.details-highlight .fa-clock {
+color: #007bff; 
+}
+
+.details-highlight .fa-calendar-alt {
+color: #28a745; 
+}
+
+
+.details-highlight .bi {
+font-size: 1.2rem; /*grandezza per entrambe le icone*/
+}
+
+
+
+
+/*scelta quantità mix/master*/
+
+#quantityDisplay {
+font-size: 1rem; 
+}
+
+.btn i {
+font-size: 1.5rem; 
+}
+
+.mb-4 {
+margin-bottom: 1.5rem; 
+}
+
+.btn-quantity {
+font-size: 0.75rem;  
+padding: 0.25rem 0.5rem; 
+}
+
+.mx-2 {
+margin-left: 0.5rem;
+margin-right: 0.5rem;
+}
