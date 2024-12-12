@@ -240,5 +240,3 @@ function togglePasswordVisibility(fieldId) {
     }
 }
 </script>
-
-

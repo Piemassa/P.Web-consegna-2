@@ -68,6 +68,7 @@
             </div>
         </section>
 
+        
 <script>
     <?php if (isset($_SESSION['login_error'])): ?>
         <?php if ($_SESSION['login_error'] == 'no_account'): ?>

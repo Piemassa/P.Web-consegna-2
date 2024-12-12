@@ -1,16 +1,27 @@
 <?php  
-    $nomepagina = "Register";
+    $nomepagina = "Registrazione";
 
     include("assets/php/config.php");
     include("assets/php/auth.php");
 
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
-        auth_reg($db, $_POST);
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $post_data = [
+            'nome' => $_POST['nome'],
+            'cognome' => $_POST['cognome'],
+            'cf' => $_POST['cf'],
+            'email' => $_POST['email'],
+            'telefono' => $_POST['telefono'],
+            'password' => $_POST['password'],
+            'birthdate' => $_POST['birthdate'],
+            'interessi' => $_POST['interessi'],
+        ];
+        auth_reg($db, $post_data);
     }
+    
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -21,10 +32,12 @@
         <?php 
             include("assets/php/allstyle.html");
         ?>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        
     </head>
     <body id="page-top">
 
-        <!-- Import navbar --> 
+        <!-- Importa la navbar --> 
         <?php include("assets/php/navbar.php");?>
 
         <section id="registra_section" class="bg-dark text-white py-7">
@@ -114,6 +127,31 @@
                 </form>
             </div>
         </section>
+
+
+<script>
+    <?php if (isset($_SESSION['reg_message'])): ?>
+        var regMessage = <?php echo json_encode($_SESSION['reg_message']); ?>;
+        console.log("Messaggio di errore: " + regMessage);  // Debug in JavaScript
+        <?php if ($_SESSION['reg_message'] == 'success'): ?>
+            Swal.fire({
+                icon: 'success',
+                title: 'Registrazione completata',
+                text: 'La registrazione è andata a buon fine. Sei in attesa di approvazione da parte degli amministratori.',
+                confirmButtonText: 'OK'
+            });
+        <?php else: ?>
+            Swal.fire({
+                icon: 'error',
+                title: 'Credenziali già registrate',
+                text: regMessage,
+                confirmButtonText: 'OK'
+            });
+        <?php endif; ?>
+        <?php unset($_SESSION['reg_message']); ?>
+    <?php endif; ?>
+</script>
+
 
         <!-- Footer -->
         <?php 
