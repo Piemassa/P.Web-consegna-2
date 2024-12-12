@@ -1,5 +1,5 @@
 <?php  
-    $nomepagina = "Home";
+    $nomepagina = "Corsi e Masterclass";
     include('assets/php/session.php');
 ?>
 
@@ -26,29 +26,68 @@
         ?>
 
 
-        <!-- About-->
+        
+<!-- Corso di canto -->
 
-        <section class="page-section bg-primary" id="about">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-lg-8 text-center">
-                        <h2 class="text-white mt-0">Lo studio</h2>
-                        <hr class="divider divider-light" />
-                        <p class="text-white-75 mb-4">Questo studio nasce dalla passione che tutti e 3 abbiamo per la musica .... è il luogo in cui ci sentiamo più a casa.
-                        è composto da [tot] stanze di registrazione, [tot] boots per registrare,[tot] stanze dedicate al Mix&MAster/all'ascolto, [tot] stanza Dolby Atmos e 2 aule di medie dimensioni dedicate allo svolgimento di attività e corsi.</p>
-                        <div class="w3-panel w3-leftbar w3-light-grey">
-                            <p><i>"Non è mai troppo tardi per diventare ciò che avresti potuto essere."</i></p>
-                            <p>George Elliot (Mary Ann Evans)</p>
-                          </div>
-                       
-                    </div>
-                </div>
+<section class="page-section bg-primary" id="corso-di-canto">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <!-- Colonna per l'immagine -->
+            <div class="col-lg-6 text-center mb-4 mb-lg-0">
+                <img src="https://www.donnad.it/sites/default/files/styles/r_visual_d/public/201448/shutterstock_162783689.jpg?itok=7TnaoYPl" 
+                     alt="Corso di canto" class="img-fluid rounded">
             </div>
-        </section>
+            <!-- Colonna per il testo -->
+            <div class="col-lg-6 text-center">
+                <h2 class="text-white mt-0 titolo-CeM">Corso di canto</h2>
+                <hr class="divider divider-light" />
+                <p class="text-white-75 mb-4">
+                    Che tu sia un tipo da live o sia in procinto di registrare il tuo nuovo disco, ti forniremo tutti gli strumenti per essere la versione migliore di te stesso nel canto.
+                </p> 
+                <p class="text-white-75 mb-4">
+                    Questo corso è adatto a tutti i livelli - dai principianti agli esperti - e a tutte le età. 
+                </p>
+                <p class="text-white-75 mb-4">
+                    Insieme creeremo un percorso personalizzato che ti permetta di raggiungere i tuoi obbiettivi a corto, medio e lungo termine.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Corso di Mix&Master -->
+
+<section class="page-section bg-dark text-white" id="corso-di-canto">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <!-- Colonna per l'immagine -->
+            <div class="col-lg-6 text-center mb-4 mb-lg-0">
+                <img src="https://static.wixstatic.com/media/11062b_d8286a39310944e984f8cc728423b66a~mv2.jpg/v1/fill/w_736,h_414,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/11062b_d8286a39310944e984f8cc728423b66a~mv2.jpg" 
+                     alt="Corso di Mix&Master" class="img-fluid rounded">
+            </div>
+            <!-- Colonna per il testo -->
+            <div class="col-lg-6 text-center">
+                <h2 class="text-white mt-0 titolo-CeM">Corso di Mix&Master</h2>
+                <hr class="divider divider-light" />
+                <p class="text-white-75 mb-4">
+                    Che tu sia un tipo da live o sia in procinto di registrare il tuo nuovo disco, ti forniremo tutti gli strumenti per essere la versione migliore di te stesso nel canto.
+                </p> 
+                <p class="text-white-75 mb-4">
+                    Questo corso è adatto a tutti i livelli - dai principianti agli esperti - e a tutte le età. 
+                </p>
+                <p class="text-white-75 mb-4">
+                    Insieme creeremo un percorso personalizzato che ti permetta di raggiungere i tuoi obbiettivi a corto, medio e lungo termine.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
 
         <!-- The Team -->
 
- <section class="page-section bg-dark text-white id='about'">
+ <section class="page-section bg-dark text-white" id='about'>
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8 text-center">
@@ -133,27 +172,18 @@
             </div>
         </section>
         
-        <?php 
-            if (!isset($login_email)) {  // mostra l'icona del carrello solo se l'utente è loggato 
-                echo '
-                    <section class="page-section bg-dark text-white">
-                        <div class="container px-4 px-lg-5 text-center">
-                            <h2 class="mb-4">Registrati senza impegno</h2>
-                            <h6 class="text-white font-weight-bold piccolo">Registrarsi è gratuito e offre solo vantaggi!</h6>
-                            <p 
-                                class="text-white-75 mb-4"><i> Una volta registrato</i>, potrai: 
-                                <br>• Prenotare i studi di registrazione, sale prova, workshops 
-                                <br>• Richiedere Mix&Master
-                            </p>
-                            <a class="btn btn-light btn-xl" href="registra.php">Clicca qui per registrarti</a>
-                        </div>
-                    </section>
-                ';
-            }
-        ?>
+        <!-- Call to action-->
+        <section class="page-section bg-dark text-white">
+            <div class="container px-4 px-lg-5 text-center">
+                <h2 class="mb-4">Registrati senza impegno</h2>
+                <h6 class="text-white font-weight-bold piccolo">Registrarsi è gratuito e offre solo vantaggi!</h6>
+                <p class="text-white-75 mb-4"><i> Una volta registrato</i>, potrai: 
+    <br>• Prenotare i studi di registrazione, sale prova, workshops 
+	<br>• Richiedere Mix&Master</p>
+                <a class="btn btn-light btn-xl" href="registra.php">Clicca qui per registrarti</a>
+            </div>
 
-
-        
+    </section>
     <?php 
         include("assets/php/footer.php");
     ?>

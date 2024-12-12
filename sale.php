@@ -19,8 +19,12 @@
     </head>
     <body id="page-top">
 
-        <!--importo la navbar-->
-        <?php include("assets/php/navbar.php");?>
+        <!--importo la navbar e l'header-->
+        <?php 
+        include("assets/php/navbar.php");
+        include("assets/php/masthead.php");
+        ?>
+
 
         <!--Portfolio-->
         <div id="portfolio">

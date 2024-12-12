@@ -47,6 +47,8 @@ object-fit: cover; /* Rende l'immagine scalata per riempire il contenitore senza
 }
 
 
+/*CORSI E MASTERCLASS*/
+
 
 
 /*PRENOTA*/
@@ -133,3 +135,135 @@ padding: 0.25rem 0.5rem;
 margin-left: 0.5rem;
 margin-right: 0.5rem;
 }
+
+/*pagina personale utente*/
+
+.gradient-custom {
+  /* fallback for old browsers */
+  background: #f6d365;
+  
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1));
+  
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1))
+  }
+
+
+
+/* GESTIONE UTENTI SECTION responsive (table e font) */
+/* Section Styling */
+.page-section {
+  padding-top: 40px;  /* Reduced top padding */
+  padding-bottom: 40px;  /* Reduced bottom padding */
+  margin-top: 0;  /* Remove any margin above */
+  margin-bottom: 0;  /* Remove any margin below */
+}
+
+/* Responsive Table Container */
+.table-responsive {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: auto; /* Allow scrolling for smaller screens */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Table Styling */
+.table {
+  font-size: calc(0.6rem + 0.3vw); /* Smaller base font size for mobile-friendly scaling */
+  width: 100%; /* Table spans the full width of the container */
+  table-layout: auto; /* Allow columns to resize based on content */
+  word-wrap: break-word; /* Break long words if necessary */
+  border-collapse: collapse; /* Remove gaps between cells for a cleaner look */
+  margin: 0 auto; /* Center the table */
+}
+
+/* Header Styling */
+.table thead th {
+  background-color: #343a40;
+  color: white;
+  text-transform: uppercase;
+  font-size: calc(0.7rem + 0.2vw); /* Smaller header font size */
+  padding: 8px;
+}
+
+/* Table Cells */
+.table td, .table th {
+  vertical-align: middle;
+  text-align: center;
+  word-break: break-word;
+  padding: 8px;
+  border: 1px solid #dee2e6; /* Add subtle borders for clarity */
+  font-size: calc(0.6rem + 0.3vw); /* Smaller, more responsive font size for table cells */
+}
+
+/* Button Styling ONLY for the table section */
+.page-section .btn {
+  font-size: calc(0.6rem + 0.3vw); /* Smaller font for mobile-friendly buttons in the table */
+  padding: 5px 10px;
+  margin: auto;
+  display: block; /* Ensure buttons are visible and centered */
+}
+
+/* Make buttons wrap if necessary */
+.table td form {
+  display: flex;
+  justify-content: center;
+}
+
+/* Badge Styling */
+.badge-warning {
+  font-size: calc(0.7rem + 0.3vw); /* Responsive font size for badges */
+  padding: 5px 10px;
+  color: #856404;
+  background-color: #fff3cd;
+  border-radius: 5px;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+  .table {
+    font-size: calc(0.5rem + 0.4vw); /* Further reduce font size for narrow screens */
+  }
+  .page-section .btn {
+    width: 100%; /* Buttons span full width on smaller screens */
+    margin-bottom: 5px; /* Space between stacked buttons */
+  }
+  .table td {
+    white-space: normal; /* Allow content to wrap */
+  }
+  .table thead th {
+    font-size: calc(0.6rem + 0.3vw); /* Further reduce header font size */
+  }
+}
+
+/* Adjustments for extra small screens (phones) */
+@media (max-width: 480px) {
+  .table {
+    font-size: calc(0.5rem + 0.3vw); /* Very small font for tight spaces */
+  }
+  .page-section .btn {
+    font-size: calc(0.5rem + 0.3vw); /* Smaller button font for extra small screens */
+    padding: 4px 8px;
+  }
+  .badge-warning {
+    font-size: calc(0.6rem + 0.2vw); /* Reduce badge font size further */
+  }
+}
+
+/*login e registra*/
+.form-label {
+  font-family: 'Roboto', Arial, sans-serif; /* Modern sans-serif font */
+  font-size: 1.1rem; /* Slightly smaller size than input text */
+  font-weight: 500; /* Medium weight for clarity */
+  color: #e5e5e5; /* Subtle light gray for readability on dark background */
+  margin-bottom: 5px; /* Space below label */
+  display: block; /* Ensure label spans a full line */
+  text-align: left; /* Align text to the left */
+}
+
+/*.form-label.required::after {
+  content: " *"; /* Add a red asterisk for required fields 
+  color: #ff4d4d;
+}*/

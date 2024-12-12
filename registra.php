@@ -21,25 +21,24 @@
         <?php 
             include("assets/php/allstyle.html");
         ?>
-
     </head>
     <body id="page-top">
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-                <div class="container px-4 px-lg-5">
-                    <a class="navbar-brand" href="index.php">X</a>
-        </nav>
-        <section id="login_section" class="page-section bg-dark text-white py-7">
+
+        <!-- Import navbar --> 
+        <?php include("assets/php/navbar.php");?>
+
+        <section id="registra_section" class="bg-dark text-white py-7">
             <div class="container px-4 px-lg-5 h-100">
                 <form method="post">
                     <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
-                        <div class="col-md-5 align-self-end">
+                        <div class="col-md-5 align-self-end" style="margin-top: 70px; margin-bottom: 20px">
                             <div class="row mb-3 align-items-center">
                                 <div class="col-4">
-                                    <h3 class="form-label text-white">Codice fiscale:</h3>
+                                    <h3 class="form-label text-white">Codice fiscale</h3>
                                 </div>
                                 <div class="col-8">
                                     <p name="error_box"><?php echo($_SESSION['error']) ?></p>
-                                    <input class="form-control p-4 fs-6" type="text" name="cf" placeholder="Codice fiscale" required name="CF">
+                                    <input class="form-control p-4 fs-6" type="text" name="cf" placeholder="Codice fiscale" required>
                                 </div>
                             </div>
                             <div class="row mb-3 align-items-center">
@@ -47,7 +46,7 @@
                                     <h3 class="form-label text-white">Email</h3>
                                 </div>
                                 <div class="col-8">
-                                    <input class="form-control p-4 fs-6" type="email" name="email" placeholder="Email" required name="Email">
+                                    <input class="form-control p-4 fs-6" type="email" name="email" placeholder="Email" required>
                                 </div>
                             </div>
                             <div class="row mb-3 align-items-center">
@@ -55,7 +54,7 @@
                                     <h3 class="form-label text-white">Password</h3>
                                 </div>
                                 <div class="col-8">
-                                    <input class="form-control p-4 fs-6" type="password" name="password" placeholder="Password" required name="Password">
+                                    <input class="form-control p-4 fs-6" type="password" name="password" placeholder="Password" required>
                                 </div>
                             </div>
                             <div class="row mb-3 align-items-center">
@@ -63,7 +62,7 @@
                                     <h3 class="form-label text-white">Cognome</h3>
                                 </div>
                                 <div class="col-8">
-                                    <input class="form-control p-4 fs-6" type="text" name="cognome" placeholder="Cognome" required name="Cognome">
+                                    <input class="form-control p-4 fs-6" type="text" name="cognome" placeholder="Cognome" required>
                                 </div>
                             </div>
                             <div class="row mb-3 align-items-center">
@@ -71,7 +70,7 @@
                                     <h3 class="form-label text-white">Nome</h3>
                                 </div>
                                 <div class="col-8">
-                                    <input class="form-control p-4 fs-6" type="text" name="nome" placeholder="Nome" required name="Nome">
+                                    <input class="form-control p-4 fs-6" type="text" name="nome" placeholder="Nome" required>
                                 </div>
                             </div>
                             <div class="row mb-3 align-items-center">
@@ -79,29 +78,44 @@
                                     <h3 class="form-label text-white">Data di nascita</h3>
                                 </div>
                                 <div class="col-8">
-                                <input class="form-control p-4 fs-6" type="date-local" name="birthdate" required name="date" value="YYYY-MM-DD">
+                                    <input class="form-control p-4 fs-6" type="date" name="birthdate" placeholder="YYYY-MM-DD" required>
                                 </div>
                             </div>
+                            <div class="row mb-3 align-items-center">
+                                <div class="col-4">
+                                    <h3 class="form-label text-white">Telefono</h3>
+                                </div>
+                                <div class="col-8">
+                                    <input class="form-control p-4 fs-6" type="text" name="telefono" placeholder="Telefono" pattern="[0-9]*" maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
+                                </div>
+                            </div>    
                             <div class="row mb-3 align-items-center">
                                 <div class="col-4">
                                     <h3 class="form-label text-white">Interessi</h3>
                                 </div>
                                 <div class="col-8">
-                                <input class="form-control p-4 fs-6" type="text" name="interessi" required name="interessi" placeholder="Interessi">
+                                    <input class="form-control p-4 fs-6" type="text" name="interessi" placeholder="Interessi" required>
+                                </div>
+                            </div>    
+                            <div class="row justify-content-center align-items-center mb-1">
+                                <!-- Center the "Invia" button -->
+                                <div class="d-flex justify-content-center col-auto">
+                                    <input class="btn btn-primary btn-xl fs-2m py-3" type="Submit" value="Invia" />
+                                </div>
+                                <!-- Center the "Hai già un account? Accedi" link -->
+                                <div class="d-flex justify-content-center col-auto mt-0">
+                                    <p class="text-light mb-0">
+                                        Hai già un account? <a href="login.php">Accedi</a>
+                                    </p>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-8 align-self-baseline">
-                            <!--<p class="text-white-75 mb-5">Scopri chi siamo</p>-->
-                            <input class="btn btn-primary btn-xl fs-2m py-3" type="Submit" value="Invia" method="post" href="#login_section"/>
                         </div>
                     </div>
                 </form>
             </div>
         </section>
 
-        </section>
-        <!-- Footer-->
+        <!-- Footer -->
         <?php 
             include("assets/php/footer.php");
         ?>

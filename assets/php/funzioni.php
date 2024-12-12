@@ -1,5 +1,5 @@
 <?php
-
+//forse inutile 
     function connettiDB($hostname,$username, $password, $db){
 
         $conn = new mysqli($hostname, $username, $password, $db); 

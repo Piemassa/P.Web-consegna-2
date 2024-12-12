@@ -19,8 +19,12 @@
     </head>
     <body id="page-top">
 
-        <!--importo la navbar-->
-        <?php include("assets/php/navbar.php");?>
+        <!--importo la navbar e l'header-->
+        <?php 
+        include("assets/php/navbar.php");
+        include("assets/php/masthead.php");
+        ?>
+
 
         <!--Prodotti -->
         <section class="py-5">
@@ -47,9 +51,9 @@
                                 </div>
                             </div>
                             <!-- Azioni Prodotto-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Aggiungi al carrello</a></div>
-                            </div>
+                            <?php 
+                                include("assets/php/bottoni_prodotti.php");
+                            ?>
                         </div>
                     </div>
 
@@ -76,9 +80,9 @@
                                 </div>
                             </div>
                             <!-- Azioni Prodotto-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Aggiungi al carrello</a></div>
-                            </div>
+                            <?php 
+                                include("assets/php/bottoni_prodotti.php");
+                            ?>
                         </div>
                     </div>
                             
@@ -101,9 +105,9 @@
                                 </div>
                             </div>
                             <!-- Azioni Prodotto-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Aggiungi al carrello</a></div>
-                            </div>
+                            <?php 
+                                include("assets/php/bottoni_prodotti.php");
+                            ?>
                         </div>
                     </div>
 
@@ -130,9 +134,9 @@
                                 </div>
                             </div>
                             <!-- Azioni Prodotto-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Aggiungi al carrello</a></div>
-                            </div>
+                            <?php 
+                                include("assets/php/bottoni_prodotti.php");
+                            ?>
                         </div>
                     </div>
 
@@ -163,9 +167,9 @@
                                 </div>
                             </div>
                             <!-- Azioni Prodotto-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Aggiungi al carrello</a></div>
-                            </div>
+                            <?php 
+                                include("assets/php/bottoni_prodotti.php");
+                            ?>
                         </div>
                     </div>
                     
@@ -194,9 +198,9 @@
                                 </div>
                             </div>
                             <!-- Azioni Prodotto-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Agguingi al carrello</a></div>
-                            </div>
+                            <?php 
+                                include("assets/php/bottoni_prodotti.php");
+                            ?>
                         </div>
                     </div>
 
@@ -224,9 +228,9 @@
                                 </div>
                             </div>
                             <!-- Azioni Prodotto-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Aggiungi al carrello</a></div>
-                            </div>
+                            <?php 
+                                include("assets/php/bottoni_prodotti.php");
+                            ?>
                         </div>
                     </div>
 
@@ -254,9 +258,9 @@
                                 </div>
                             </div>
                             <!-- Azioni Prodotto-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Aggiungi al carrello</a></div>
-                            </div>
+                            <?php 
+                                include("assets/php/bottoni_prodotti.php");
+                            ?>
                         </div>
                     </div>
 
@@ -282,9 +286,9 @@
                                 </div>
                             </div>
                             <!-- Azioni Prodotto-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Vedi opzioni</a></div>
-                            </div>
+                            <?php 
+                                include("assets/php/bottoni_prodotti.php");
+                            ?>
                         </div>
                     </div>
 
@@ -306,9 +310,9 @@
                                 </div>
                             </div>
                             <!-- Azioni Prodotto-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Vedi opzioni</a></div>
-                            </div>
+                            <?php 
+                                include("assets/php/bottoni_prodotti.php");
+                            ?>
                         </div>
                     </div>
 
@@ -331,9 +335,9 @@
                                 </div>
                             </div>
                             <!-- Azioni Prodotto-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Vedi opzioni</a></div>
-                            </div>
+                            <?php 
+                                include("assets/php/bottoni_prodotti.php");
+                            ?>
                         </div>
                     </div>
 
@@ -356,9 +360,9 @@
                                 </div>
                             </div>
                             <!-- Azioni Prodotto-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Vedi opzioni</a></div>
-                            </div>
+                            <?php 
+                                include("assets/php/bottoni_prodotti.php");
+                            ?>
                         </div>
                     </div>
 
@@ -384,9 +388,9 @@
                                 </div>
                             </div>
                             <!-- Azioni Prodotto-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Vedi opzioni</a></div>
-                            </div>
+                            <?php 
+                                include("assets/php/bottoni_prodotti.php");
+                            ?>
                         </div>
                     </div>
 
@@ -408,9 +412,9 @@
                                 </div>
                             </div>
                             <!-- Azioni Prodotto-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Vedi opzioni</a></div>
-                            </div>
+                            <?php 
+                                include("assets/php/bottoni_prodotti.php");
+                            ?>
                         </div>
                     </div>
 
@@ -439,9 +443,9 @@
                                 <h5 class="mx-3 quantityDisplay">1</h5>
                                 <button class="btn btn-success btn-quantity increaseBtn"><i class="bi bi-plus"></i></button>
                             </div>
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Aggiungi al carrello</a></div>
-                            </div>
+                            <?php 
+                                include("assets/php/bottoni_prodotti.php");
+                            ?>
                         </div>
                     </div>
                     
@@ -467,9 +471,9 @@
                                 <h5 class="mx-3 quantityDisplay">1</h5>
                                 <button class="btn btn-success btn-quantity increaseBtn"><i class="bi bi-plus"></i></button>
                             </div>
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Aggiungi al carrello</a></div>
-                            </div>
+                            <?php 
+                                include("assets/php/bottoni_prodotti.php");
+                            ?>
                         </div>
                     </div>
                     
@@ -499,9 +503,9 @@
                                 <h5 class="mx-3 quantityDisplay">1</h5>
                                 <button class="btn btn-success btn-quantity increaseBtn"><i class="bi bi-plus"></i></button>
                             </div>
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Aggiungi al carrello</a></div>
-                            </div>
+                            <?php 
+                                include("assets/php/bottoni_prodotti.php");
+                            ?>
                         </div>
                     </div>
 
