@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION['error'] = '';
+
 
 function auth_log($db, $post_email, $post_pw){
     // Dal form...

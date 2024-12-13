@@ -50,7 +50,6 @@
                                     <h3 class="form-label text-white">Codice fiscale</h3>
                                 </div>
                                 <div class="col-8">
-                                    <p name="error_box"><?php echo($_SESSION['error']) ?></p>
                                     <input class="form-control p-4 fs-6" type="text" name="cf" placeholder="Codice fiscale" required>
                                 </div>
                             </div>
