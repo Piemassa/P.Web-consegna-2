@@ -19,7 +19,7 @@ CREATE TABLE PRODOTTO(
 
     Prodotto_id VARCHAR(255) PRIMARY KEY,
     Prodotto_prezzo DECIMAL (7, 2) NOT NULL,
-    Prodotto_immagine VARCHAR(255), --SALVATA COME URL AD UN'IMMAGINE 
+    Prodotto_immagine VARCHAR(255), --SALVATA COME URL AD UN'IMMAGINE ---
     Prodotto_descrizione VARCHAR (1000)
 
 );
