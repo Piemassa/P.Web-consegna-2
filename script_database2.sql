@@ -11,7 +11,7 @@ CREATE TABLE UTENTE (
     U_tipo VARCHAR(32) NOT NULL,
     U_data_di_nascita DATE NOT NULL,
     U_telefono VARCHAR(32),
-    U_stato VARCHAR(16),
+    U_stato VARCHAR(16)
 
 );
 
@@ -20,7 +20,7 @@ CREATE TABLE PRODOTTO(
     Prodotto_id VARCHAR(255) PRIMARY KEY,
     Prodotto_prezzo DECIMAL (7, 2) NOT NULL,
     Prodotto_immagine VARCHAR(255), --SALVATA COME URL AD UN'IMMAGINE 
-    Prodotto_descrizione VARCHAR (1000),
+    Prodotto_descrizione VARCHAR (1000)
 
 );
 
@@ -81,7 +81,7 @@ CREATE TABLE CARRELLO (
 CREATE TABLE ORDINE (
 
     Ordine_id VARCHAR (255) PRIMARY KEY,
-    Data_ordine DATA NOT NULL,
+    Data_ordine DATA NOT NULL
     
 );
 
