@@ -51,6 +51,7 @@ CREATE TABLE CORSO (
     Corso_Operatore_Cognome VARCHAR(32),
     Corso_Data VARCHAR(32),
     Prodotto_id VARCHAR(255) PRIMARY KEY,
+    N_Lez INT(32),
     FOREIGN KEY (Prodotto_id) REFERENCES PRODOTTO(Prodotto_id) ON DELETE CASCADE
 
 );
