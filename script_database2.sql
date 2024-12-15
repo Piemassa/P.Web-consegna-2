@@ -70,6 +70,8 @@ CREATE TABLE MODIFICA (
 CREATE TABLE CARRELLO (
 
     C_quantità INT (100),
+    Prodotto_id VARCHAR(255),
+    U_cf VARCHAR(16),
     PRIMARY KEY (Prodotto_id, U_cf),
     FOREIGN KEY (Prodotto_id) REFERENCES PRODOTTO(Prodotto_id),
     FOREIGN KEY (U_cf) REFERENCES UTENTE(U_cf)
