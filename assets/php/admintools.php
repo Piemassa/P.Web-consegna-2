@@ -2,63 +2,191 @@
 include("assets/php/allstyle.html");
 
 
-    function getUtentiTable($db, $login_admin_cf) {
-
-
-        // Query per ricerca dati utente 
-        $sql = "SELECT * FROM utente";
+    function getUtentiTable($db) {
+        // Query per selezionare solo utenti di tipo cliente
+        $sql = "SELECT * FROM utente WHERE U_tipo = 'cliente'";
         $result = mysqli_query($db, $sql);
-        $count = mysqli_num_rows($result);
     
-        if ($count > 0) {
-            echo "<div class='table-container'>";
-            echo "<h3 class='table-title'>Gestione utenti</h3> <br>"; 
-            echo "<div class='table-responsive'>";
-            echo "<table class='table table-striped table-bordered'>";
-            echo "<thead class='thead-dark'>";
-            echo "<tr class='text-center'>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Interessi</th>
-                    <th>Azione</th>
-                  </tr>";
-            echo "</thead>";
-            echo "<tbody>";
+        // Check se ci sono risultati
+        if (mysqli_num_rows($result) > 0) {
+            // Array per dividere gli utenti
+            $utentiAttesa = [];
+            $utentiApprovati = [];
     
-            // Loop attraverso le rows
+            // Dividi gli utenti in due gruppi
             while ($row = $result->fetch_assoc()) {
-                $btnBlocca = "<form> 
-                                <button class='btn btn-danger btn-sm' onclick='admintoolbutton(\"" . $row["Utente_cf"] . "\" , \"blocca\", \"vuoto\")' name='bottone_blocca' >
-                                    Blocca
-                                </button> 
-                              </form>";
-                $btnApprova = "<form> 
-                                <button class='btn btn-success btn-sm' onclick='admintoolbutton(\"" . $row["Utente_cf"] . "\" , \"approva\" , \"" . $login_admin_cf . "\")' name='bottone_approva'>
-                                    Approva
-                                </button> 
-                               </form>";
-                
-                $actionCell = $row["approvato"] != null 
-                    ? ($row["Bloccato"] == 0 ? $btnBlocca : "<span class='badge badge-warning'>Bloccato</span>")
-                    : $btnApprova;
-    
-                echo "<tr class='text-center align-middle'>
-                        <td>".$row["Utente_cf"]."</td>
-                        <td>".$row["Nome"]." ".$row["Cognome"]."</td>
-                        <td>".$row["Interesse"]."</td>
-                        <td>".$actionCell."</td>
-                      </tr>";
+                if ($row["U_stato"] == 'attesa') {
+                    $utentiAttesa[] = $row;
+                }else {
+                    $utentiApprovati[] = $row;
+                }
             }
     
-            echo "</tbody>";
-            echo "</table>";
-            echo "</div>";
-            echo "</div>"; 
+            // Tabella per utenti in attesa
+            if (count($utentiAttesa) > 0) {
+                echo "<div class='table-container' style='margin-bottom: 40px;'>"; // Spazio sotto la tabella
+                echo "<h3 class='table-title'>Gestione utenti in attesa</h3><br>";
+                echo "<div class='table-responsive'>";
+                echo "<table class='table table-striped table-bordered'>";
+                echo "<thead class='thead-dark'>";
+                echo "<tr class='text-center'>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Azione</th>
+                      </tr>";
+                echo "</thead><tbody>";
+            
+                foreach ($utentiAttesa as $row) {
+                    $btnApprova = "<form method='POST' style='display: inline-block; margin: 5px;'> 
+                                    <button class='btn btn-success btn-sm' type='submit' name='bottone_approva' value=".$row["U_cf"].">
+                                        Approva
+                                    </button> 
+                                  </form>";
+                    $btnElimina = "<button class='btn btn-danger btn-sm' type='button' style='margin: 5px;' onclick='confirmElimina(\"".$row["U_cf"]."\")'>
+                                   Rifiuta
+                                  </button>";
+            
+                    echo "<tr class='text-center align-middle'>
+                            <td>".$row["U_cf"]."</td>
+                            <td>".$row["U_nome"]." ".$row["U_cognome"]."</td>
+                            <td>".$btnApprova . $btnElimina."</td>
+                          </tr>";
+                }
+            
+                echo "</tbody></table></div></div>";
+            } else {
+                echo "<div class='alert alert-info text-center'>Nessun utente in attesa di approvazione.</div>";
+            }
+            
+    
+            // Tabella per utenti già Approvati
+            if (count($utentiApprovati) > 0) {
+                echo "<div class='table-container' style='margin-bottom: 40px;'>"; // Spazio sotto la tabella
+                echo "<h3 class='table-title'>Gestione utenti approvati</h3><br>";
+                echo "<div class='table-responsive'>";
+                echo "<table class='table table-striped table-bordered'>";
+                echo "<thead class='thead-dark'>";
+                echo "<tr class='text-center'>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Azione</th>
+                      </tr>";
+                echo "</thead><tbody>";
+            
+                foreach ($utentiApprovati as $row) {
+                    $btnBlocca = "<form method='POST' style='display: inline-block; margin: 5px;'> 
+                                    <button class='btn btn-primary btn-sm' type='submit' name='bottone_blocca' value=".$row["U_cf"].">
+                                        Blocca
+                                    </button> 
+                                  </form>";
+                    $btnSblocca = "<form method='POST' style='display: inline-block; margin: 5px;'> 
+                                    <button class='btn btn-warning btn-sm' type='submit' name='bottone_sblocca' value=".$row["U_cf"].">
+                                        Sblocca
+                                    </button> 
+                                  </form>";
+                    $btnElimina = "<button class='btn btn-danger btn-sm' type='button' style='margin: 5px;' onclick='confirmElimina(\"".$row["U_cf"]."\")'>
+                                   Elimina
+                                  </button>";
+            
+                    $actionCell = $row["U_stato"] == 'bloccato' ? $btnSblocca : $btnBlocca;
+            
+                    echo "<tr class='text-center align-middle'>
+                            <td>".$row["U_cf"]."</td>
+                            <td>".$row["U_nome"]." ".$row["U_cognome"]."</td>
+                            <td>".$actionCell . $btnElimina."</td>
+                          </tr>";
+                }
+            
+                echo "</tbody></table></div></div>";
+            } else {
+                echo "<div class='alert alert-info text-center'>Nessun utente approvato trovato</div>";
+            }
         } else {
             echo "<div class='alert alert-info text-center'>Nessun risultato trovato.</div>";
         }
-
-
     }
     
+
+
+
+    function approvautenti($db,$codice_fiscale_bottone){
+
+        //query di check
+        
+        $sql = "UPDATE utente SET U_stato = 'attivo'  WHERE U_cf = '$codice_fiscale_bottone' " ;
+        $result = mysqli_query($db,$sql);
+
+        if(!$result){
+            echo "errore nell'approvazione dell'utente";
+        }
+
+    }
+
+
+    function bloccautenti($db,$codice_fiscale_bottone){
+
+        //query di check
+        
+        $sql = "UPDATE utente SET U_stato = 'bloccato' WHERE U_cf = '$codice_fiscale_bottone' " ;
+        $result = mysqli_query($db,$sql);
+
+        if(!$result){
+            echo "errore nel bloccare l'utente";
+        }
+
+    }  
+
+    function sbloccautenti($db, $codice_fiscale_bottone) {
+        // Query to unblock user
+        $sql = "UPDATE utente SET U_stato = 'attivo' WHERE U_cf = '$codice_fiscale_bottone'";
+        $result = mysqli_query($db, $sql);
+    
+        if (!$result) {
+            echo "Errore nello sblocco dell'utente";
+        }
+    }
+
+    function eliminautenti($db, $codice_fiscale_bottone) {
+        // Query to delete user
+        $sql = "DELETE FROM utente WHERE U_cf = '$codice_fiscale_bottone'";
+        $result = mysqli_query($db, $sql);
+    
+        if (!$result) {
+            echo "Errore nell'eliminazione dell'utente";
+        }
+    }
+
+
 ?>
+
+
+<script>
+function confirmElimina(utenteCf) {
+    Swal.fire({
+        title: 'Sei sicuro?',
+        text:`Vuoi veramente eliminare l'utente il cui CF è "${utenteCf}"? Questa azione non può essere annullata!`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sì, elimina!',
+        cancelButtonText: 'Annulla'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Crea un form temporaneo per inviare la richiesta di eliminazione
+            var form = document.createElement('form');
+            form.method = 'POST';
+            form.action = ''; // Assicurati che l'azione del form sia corretta
+
+            var input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'conferma_elimina';
+            input.value = utenteCf;
+
+            form.appendChild(input);
+            document.body.appendChild(form);
+            form.submit();
+        }
+    })
+}
+</script>

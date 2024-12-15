@@ -4,23 +4,16 @@
 
 
    if(isset($_SESSION['email'])) {
+      $login_cf = $_SESSION['cf'];
+      $login_email = $_SESSION['email'];
       $login_username = $_SESSION['name'];
       $login_surname = $_SESSION['surname'];
-      $login_cf = $_SESSION['cf'];
-      $login_tel = $_SESSION['tel'];
-      $login_email = $_SESSION['email'];
-      $login_birth = $_SESSION['birth'];
-      
 
-      if(isset($_SESSION['user_approved'])){
-         $approved = $_SESSION['user_approved'];
-      }
-      
-      if(isset($_SESSION['login_admin_cf'])){
-         $login_admin_cf = $_SESSION['login_admin_cf'];
-      }
-      
-      $adminbool = $_SESSION['admin_bool'];
+      $login_type = $_SESSION['type'];
+
+      $login_birth = $_SESSION['birth'];
+      $login_tel = $_SESSION['tel'];
+    
    }  
 
    

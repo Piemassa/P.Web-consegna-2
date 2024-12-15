@@ -509,6 +509,11 @@
                         </div>
                     </div>
 
+                    <!-- Bottone per aggiungere nuovi prodotti -->
+                    <div class="text-center mt-5">
+                        <a href="assets/php/form_prodotto.php" class="btn btn-outline-dark btn-lg">+</a>
+                    </div>
+
             </div>
         </section>
 

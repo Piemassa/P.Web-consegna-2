@@ -57,7 +57,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <!-- Profile Image -->
                             <img src="/assets/img/m_avatar.png" alt="Avatar" class="img-fluid" style="width: 150px; border-radius: 50%;" />
                             <h5><?php echo $login_username; ?> <?php echo $login_surname; ?></h5>
-                            <p class="text-muted">Software Engineer</p>
                             
                             <h6 class="mt-4">Personal Information</h6>
                             <hr class="mt-0 mb-4">
@@ -197,7 +196,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </div>
 
 <?php 
-        if ($_SESSION['admin_bool'] == true) {  // mostra gestione utenti solo se l'utente è un admin
+        if ($login_type == 'admin') {  // mostra gestione utenti solo se l'utente è un admin
             include("gestione_utenti.php");
         }
     ?>
@@ -209,7 +208,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         Swal.fire({
             title: 'Sei sicuro?',
             text: "Vuoi davvero effettuare il logout?",
-            icon: 'warning',
+            icon: 'question',
             showCancelButton: true,
             confirmButtonText: 'Sì, esci',
             cancelButtonText: 'Annulla'
@@ -219,7 +218,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         });
     });
+  </script>
+
+<?php if (isset($_SESSION['success_message'])): ?>
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Successo',
+            text: '<?php echo $_SESSION['success_message']; ?>',
+            confirmButtonText: 'OK'
+        });
     </script>
+    <?php unset($_SESSION['success_message']); ?>
+<?php elseif (isset($_SESSION['error_message'])): ?>
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Errore nella modifica',
+            text: '<?php echo $_SESSION['error_message']; ?>',
+            confirmButtonText: 'OK'
+        });
+    </script>
+    <?php unset($_SESSION['error_message']); ?>
+<?php endif; ?>
+
 </body>
 </html>
 
@@ -240,5 +262,3 @@ function togglePasswordVisibility(fieldId) {
     }
 }
 </script>
-
-

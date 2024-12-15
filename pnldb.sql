@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Creato il: Nov 21, 2024 alle 20:04
+-- Creato il: Dic 15, 2024 alle 15:47
 -- Versione del server: 8.0.35
 -- Versione PHP: 8.2.20
 
@@ -24,188 +24,264 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `admin`
+-- Struttura della tabella `CARRELLO`
 --
 
-CREATE TABLE `admin` (
-  `Admin_cf` varchar(16) COLLATE utf8mb4_general_ci NOT NULL,
-  `Email_a` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `Password_hash_a` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `Nome` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Cognome` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dump dei dati per la tabella `admin`
---
-
-INSERT INTO `admin` (`Admin_cf`, `Email_a`, `Password_hash_a`, `Nome`, `Cognome`) VALUES
-('GCMSLRRS', 'admin@gmail.com', 'root', 'Admin', 'Supremo');
+CREATE TABLE `CARRELLO` (
+  `C_quantità` int DEFAULT NULL,
+  `Prodotto_id` varchar(255) NOT NULL,
+  `U_cf` varchar(16) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `carrello`
+-- Struttura della tabella `CONTIENE`
 --
 
-CREATE TABLE `carrello` (
-  `Id_prod` int NOT NULL,
-  `Utente_cf` varchar(16) COLLATE utf8mb4_general_ci NOT NULL,
-  `Quantità` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `CONTIENE` (
+  `Ordine_id` varchar(255) NOT NULL,
+  `Prodotto_id` varchar(255) NOT NULL,
+  `Quantità_di_prodotto` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `modifica`
+-- Struttura della tabella `CORSI`
 --
 
-CREATE TABLE `modifica` (
-  `Id_prod` int NOT NULL,
-  `Admin_cf` varchar(16) COLLATE utf8mb4_general_ci NOT NULL,
-  `Tipo` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Data_modifica` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `CORSI` (
+  `Corsi_Nome` varchar(32) DEFAULT NULL,
+  `Corso_Operatore_Nome` varchar(32) DEFAULT NULL,
+  `Corso_Operatore_Cognome` varchar(32) DEFAULT NULL,
+  `Corso_Data` varchar(32) DEFAULT NULL,
+  `Prodotto_id` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `prodotto`
+-- Struttura della tabella `EFFETTUA`
 --
 
-CREATE TABLE `prodotto` (
-  `Id_prod` int NOT NULL,
-  `Categoria` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `Descrizione` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
-  `Dimensione` int DEFAULT NULL,
-  `Prezzo` decimal(7,2) NOT NULL,
-  `Classe` varchar(10) COLLATE utf8mb4_general_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `EFFETTUA` (
+  `Ordine_id` varchar(255) NOT NULL,
+  `U_cf` varchar(16) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `utente`
+-- Struttura della tabella `MODIFICA`
 --
 
-CREATE TABLE `utente` (
-  `Utente_cf` varchar(16) COLLATE utf8mb4_general_ci NOT NULL,
-  `Email_u` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `Password_hash_u` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `Nome` varchar(32) COLLATE utf8mb4_general_ci NOT NULL,
-  `Cognome` varchar(32) COLLATE utf8mb4_general_ci NOT NULL,
-  `Datanascita_u` date NOT NULL,
-  `Interesse` varchar(128) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Bloccato` tinyint(1) DEFAULT NULL,
-  `approvato` varchar(16) COLLATE utf8mb4_general_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dump dei dati per la tabella `utente`
---
-
-INSERT INTO `utente` (`Utente_cf`, `Email_u`, `Password_hash_u`, `Nome`, `Cognome`, `Datanascita_u`, `Interesse`, `Bloccato`, `approvato`) VALUES
-('', 'l.cacca@cacca.com', '12345', 'Cacca', 'Luca', '2024-11-20', 'kwmdkwkdkwd', NULL, NULL),
-('aaefaf', 'cacca@gmail.com', 'afasf', 'agadg', 'adgadg', '2024-05-21', 'awad', NULL, NULL),
-('afafasf', 'asfaf@gmail.com', 'afdaf', 'afafd', 'adfaf', '2020-06-02', 'afa', NULL, NULL),
-('asfasf', 'afafs@cacca.it', 'awdawd', 'awfwaf', 'afsaf', '2020-07-03', 'qascdas', NULL, NULL),
-('awdawdaeef', 'l.cacca@gmamma.com', '123', '123', '123', '2024-06-02', 'awdwd', NULL, NULL),
-('EIFHDHSJEJR7438G', 'l.giaco03@gmail.com', '1234', 'Luca', 'Giacomelli', '0000-00-00', 'wwdkwdjwdjwd', NULL, NULL),
-('fawfawfwf', 'l.giaco02@gmail.com', '1234', 'Luca', 'Giacomelli', '2003-06-19', 'wdwd', NULL, NULL),
-('GDCJSKEK', 'ziopero@gmammolo.it', 'caccapipi', 'Cacca', 'Genitt', '2020-11-16', 'Sono down', 1, NULL),
-('mssprl01e24c573d', 'piemassa01@gmail.com', '12345', 'pietro luigi maria ', 'massaro', '2001-05-24', 'asfnoasncop', NULL, NULL),
-('RCGNRO04T68A052L', 'nora.famiglia@gmail.com', '123', 'Nora', 'Ricagni', '2004-12-28', 'ciaooo', NULL, NULL),
-('wdwd', 'l.cacca@caccwa.com', '12345', 'Cacca', 'Luca', '2024-11-20', 'kwmdkwkdkwd', NULL, NULL);
+CREATE TABLE `MODIFICA` (
+  `Prodotto_id` varchar(255) NOT NULL,
+  `U_cf` varchar(16) NOT NULL,
+  `Tipo_modifica` varchar(128) DEFAULT NULL,
+  `Data_di_modifica` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `utenti_el`
+-- Struttura della tabella `ORDINE`
 --
 
-CREATE TABLE `utenti_el` (
-  `Utente_cf` varchar(16) COLLATE utf8mb4_general_ci NOT NULL,
-  `DataEl` date NOT NULL,
-  `Nome` varchar(32) COLLATE utf8mb4_general_ci NOT NULL,
-  `Cognome` varchar(32) COLLATE utf8mb4_general_ci NOT NULL,
-  `Admin_cf` varchar(16) COLLATE utf8mb4_general_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `ORDINE` (
+  `Ordine_id` varchar(255) NOT NULL,
+  `Data_ordine` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `PRODOTTO`
+--
+
+CREATE TABLE `PRODOTTO` (
+  `Prodotto_id` varchar(255) NOT NULL,
+  `Prodotto_prezzo` decimal(7,2) NOT NULL,
+  `Prodotto_immagine` varchar(255) DEFAULT NULL,
+  `Prodotto_descrizione` varchar(1000) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `SALA`
+--
+
+CREATE TABLE `SALA` (
+  `Sala_Tipo` varchar(32) DEFAULT NULL,
+  `Sala_Nome` varchar(32) DEFAULT NULL,
+  `Sala_capienza` int DEFAULT NULL,
+  `Prodotto_id` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `SERVIZIO`
+--
+
+CREATE TABLE `SERVIZIO` (
+  `Servizio_Tipo` varchar(32) DEFAULT NULL,
+  `Servizio_Operatore_Nome` varchar(32) DEFAULT NULL,
+  `Servizio_Operatore_Cognome` varchar(32) DEFAULT NULL,
+  `Prodotto_id` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `UTENTE`
+--
+
+CREATE TABLE `UTENTE` (
+  `U_cf` varchar(16) NOT NULL,
+  `U_mail` varchar(50) NOT NULL,
+  `U_password` varchar(255) NOT NULL,
+  `U_nome` varchar(32) NOT NULL,
+  `U_cognome` varchar(32) NOT NULL,
+  `U_tipo` varchar(32) NOT NULL,
+  `U_data_di_nascita` date NOT NULL,
+  `U_telefono` varchar(32) DEFAULT NULL,
+  `U_stato` varchar(16) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dump dei dati per la tabella `UTENTE`
+--
+
+INSERT INTO `UTENTE` (`U_cf`, `U_mail`, `U_password`, `U_nome`, `U_cognome`, `U_tipo`, `U_data_di_nascita`, `U_telefono`, `U_stato`) VALUES
+('123456789agh', 'igmiti@gmail.com', '1234', 'Igor', 'miti ', 'cliente', '1996-12-17', '254269890867', 'approvato'),
+('123456789aghjkfr', 'igor_miti@gmail.com', '1234', 'Igor', 'miti ', 'cliente', '1996-12-17', '254269890867', 'approvato'),
+('835109kjadbv', 'luca.gotto@gmai.com', '1234', 'luca', 'gotto', 'cliente', '2001-05-24', '319875', 'attivo'),
+('aodgiuab246', 'checca.catone@gmail.com', '12345', 'checca ', 'catone', 'cliente', '1978-06-23', '9382592847', 'attivo'),
+('cfadmin111111', 'admin@gmail.com', 'root', 'admin1', 'admin1', 'admin', '2000-01-01', '103458y74', 'attivo'),
+('cfadmin222222', 'admin2@gmail.com', 'root', 'admin2', 'admin2', 'admin', '2000-01-01', '1262413651', 'attivo'),
+('qioyt135316', 'proprietario@gmail.com', '1234', 'proprietario1', 'proprietario', 'proprietario', '2000-03-23', '23415134124', 'attivo');
 
 --
 -- Indici per le tabelle scaricate
 --
 
 --
--- Indici per le tabelle `admin`
+-- Indici per le tabelle `CARRELLO`
 --
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`Admin_cf`),
-  ADD UNIQUE KEY `Email_a` (`Email_a`);
+ALTER TABLE `CARRELLO`
+  ADD PRIMARY KEY (`Prodotto_id`,`U_cf`),
+  ADD KEY `U_cf` (`U_cf`);
 
 --
--- Indici per le tabelle `carrello`
+-- Indici per le tabelle `CONTIENE`
 --
-ALTER TABLE `carrello`
-  ADD PRIMARY KEY (`Id_prod`,`Utente_cf`),
-  ADD KEY `fk_UTENTE_c` (`Utente_cf`);
+ALTER TABLE `CONTIENE`
+  ADD PRIMARY KEY (`Ordine_id`,`Prodotto_id`),
+  ADD KEY `Prodotto_id` (`Prodotto_id`);
 
 --
--- Indici per le tabelle `modifica`
+-- Indici per le tabelle `CORSI`
 --
-ALTER TABLE `modifica`
-  ADD PRIMARY KEY (`Id_prod`,`Admin_cf`),
-  ADD KEY `fk_ADMIN` (`Admin_cf`);
+ALTER TABLE `CORSI`
+  ADD PRIMARY KEY (`Prodotto_id`);
 
 --
--- Indici per le tabelle `prodotto`
+-- Indici per le tabelle `EFFETTUA`
 --
-ALTER TABLE `prodotto`
-  ADD PRIMARY KEY (`Id_prod`);
+ALTER TABLE `EFFETTUA`
+  ADD PRIMARY KEY (`Ordine_id`,`U_cf`),
+  ADD KEY `U_cf` (`U_cf`);
 
 --
--- Indici per le tabelle `utente`
+-- Indici per le tabelle `MODIFICA`
 --
-ALTER TABLE `utente`
-  ADD PRIMARY KEY (`Utente_cf`),
-  ADD UNIQUE KEY `Email_u` (`Email_u`),
-  ADD KEY `fk_approvato` (`approvato`);
+ALTER TABLE `MODIFICA`
+  ADD PRIMARY KEY (`Prodotto_id`,`U_cf`),
+  ADD KEY `U_cf` (`U_cf`);
 
 --
--- Indici per le tabelle `utenti_el`
+-- Indici per le tabelle `ORDINE`
 --
-ALTER TABLE `utenti_el`
-  ADD PRIMARY KEY (`Utente_cf`,`DataEl`),
-  ADD KEY `fk_admin_el` (`Admin_cf`);
+ALTER TABLE `ORDINE`
+  ADD PRIMARY KEY (`Ordine_id`);
+
+--
+-- Indici per le tabelle `PRODOTTO`
+--
+ALTER TABLE `PRODOTTO`
+  ADD PRIMARY KEY (`Prodotto_id`);
+
+--
+-- Indici per le tabelle `SALA`
+--
+ALTER TABLE `SALA`
+  ADD PRIMARY KEY (`Prodotto_id`);
+
+--
+-- Indici per le tabelle `SERVIZIO`
+--
+ALTER TABLE `SERVIZIO`
+  ADD PRIMARY KEY (`Prodotto_id`);
+
+--
+-- Indici per le tabelle `UTENTE`
+--
+ALTER TABLE `UTENTE`
+  ADD PRIMARY KEY (`U_cf`),
+  ADD UNIQUE KEY `U_mail` (`U_mail`);
 
 --
 -- Limiti per le tabelle scaricate
 --
 
 --
--- Limiti per la tabella `carrello`
+-- Limiti per la tabella `CARRELLO`
 --
-ALTER TABLE `carrello`
-  ADD CONSTRAINT `fk_PRODOTTO_c` FOREIGN KEY (`Id_prod`) REFERENCES `prodotto` (`Id_prod`) ON DELETE CASCADE,
-  ADD CONSTRAINT `fk_UTENTE_c` FOREIGN KEY (`Utente_cf`) REFERENCES `utente` (`Utente_cf`) ON DELETE CASCADE;
+ALTER TABLE `CARRELLO`
+  ADD CONSTRAINT `carrello_ibfk_1` FOREIGN KEY (`Prodotto_id`) REFERENCES `PRODOTTO` (`Prodotto_id`),
+  ADD CONSTRAINT `carrello_ibfk_2` FOREIGN KEY (`U_cf`) REFERENCES `UTENTE` (`U_cf`);
 
 --
--- Limiti per la tabella `modifica`
+-- Limiti per la tabella `CONTIENE`
 --
-ALTER TABLE `modifica`
-  ADD CONSTRAINT `fk_ADMIN` FOREIGN KEY (`Admin_cf`) REFERENCES `admin` (`Admin_cf`) ON DELETE CASCADE,
-  ADD CONSTRAINT `fk_PRODOTTO` FOREIGN KEY (`Id_prod`) REFERENCES `prodotto` (`Id_prod`) ON DELETE CASCADE;
+ALTER TABLE `CONTIENE`
+  ADD CONSTRAINT `contiene_ibfk_1` FOREIGN KEY (`Ordine_id`) REFERENCES `ORDINE` (`Ordine_id`),
+  ADD CONSTRAINT `contiene_ibfk_2` FOREIGN KEY (`Prodotto_id`) REFERENCES `PRODOTTO` (`Prodotto_id`);
 
 --
--- Limiti per la tabella `utente`
+-- Limiti per la tabella `CORSI`
 --
-ALTER TABLE `utente`
-  ADD CONSTRAINT `fk_approvato` FOREIGN KEY (`approvato`) REFERENCES `admin` (`Admin_cf`) ON DELETE CASCADE;
+ALTER TABLE `CORSI`
+  ADD CONSTRAINT `corsi_ibfk_1` FOREIGN KEY (`Prodotto_id`) REFERENCES `PRODOTTO` (`Prodotto_id`);
 
 --
--- Limiti per la tabella `utenti_el`
+-- Limiti per la tabella `EFFETTUA`
 --
-ALTER TABLE `utenti_el`
-  ADD CONSTRAINT `fk_admin_el` FOREIGN KEY (`Admin_cf`) REFERENCES `admin` (`Admin_cf`);
+ALTER TABLE `EFFETTUA`
+  ADD CONSTRAINT `effettua_ibfk_1` FOREIGN KEY (`Ordine_id`) REFERENCES `ORDINE` (`Ordine_id`),
+  ADD CONSTRAINT `effettua_ibfk_2` FOREIGN KEY (`U_cf`) REFERENCES `UTENTE` (`U_cf`);
+
+--
+-- Limiti per la tabella `MODIFICA`
+--
+ALTER TABLE `MODIFICA`
+  ADD CONSTRAINT `modifica_ibfk_1` FOREIGN KEY (`Prodotto_id`) REFERENCES `PRODOTTO` (`Prodotto_id`),
+  ADD CONSTRAINT `modifica_ibfk_2` FOREIGN KEY (`U_cf`) REFERENCES `UTENTE` (`U_cf`);
+
+--
+-- Limiti per la tabella `SALA`
+--
+ALTER TABLE `SALA`
+  ADD CONSTRAINT `sala_ibfk_1` FOREIGN KEY (`Prodotto_id`) REFERENCES `PRODOTTO` (`Prodotto_id`);
+
+--
+-- Limiti per la tabella `SERVIZIO`
+--
+ALTER TABLE `SERVIZIO`
+  ADD CONSTRAINT `servizio_ibfk_1` FOREIGN KEY (`Prodotto_id`) REFERENCES `PRODOTTO` (`Prodotto_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

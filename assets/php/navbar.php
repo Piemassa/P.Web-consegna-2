@@ -27,7 +27,7 @@
                         ?>
                     </ul>
                     <?php 
-                        if (isset($login_email)) {  // mostra l'icona del carrello solo se l'utente è loggato 
+                        if (isset($login_type)&&($login_type == 'cliente')) {  // mostra l'icona del carrello solo se l'utente è loggato 
                             echo '
                                 <form class="d-flex">
                                     <button class="btn btn-outline-translucent nav-link btn-responsive d-none d-md-block ms-4" type="submit">
