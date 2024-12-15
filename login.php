@@ -68,12 +68,11 @@
             </div>
         </section>
 
-        
 <script>
     <?php if (isset($_SESSION['login_error'])): ?>
         <?php if ($_SESSION['login_error'] == 'no_account'): ?>
             Swal.fire({
-                icon: 'error',
+                icon: 'warning',
                 title: 'Account non trovato',
                 text: 'Le credenziali inserite risultano errate. Per favore, riprova o registrati.',
                 confirmButtonText: 'OK'
@@ -87,7 +86,7 @@
             });
         <?php elseif ($_SESSION['login_error'] == 'blocked'): ?>
             Swal.fire({
-                icon: 'warning',
+                icon: 'error',
                 title: 'Account bloccato',
                 text: 'Il tuo account è stato bloccato. Contatta l\'amministratore per ulteriori informazioni.',
                 confirmButtonText: 'OK'

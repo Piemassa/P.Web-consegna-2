@@ -209,7 +209,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         Swal.fire({
             title: 'Sei sicuro?',
             text: "Vuoi davvero effettuare il logout?",
-            icon: 'question',
+            icon: 'warning',
             showCancelButton: true,
             confirmButtonText: 'Sì, esci',
             cancelButtonText: 'Annulla'
@@ -219,30 +219,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         });
     });
-  </script>
-
-<?php if (isset($_SESSION['success_message'])): ?>
-    <script>
-        Swal.fire({
-            icon: 'success',
-            title: 'Successo',
-            text: '<?php echo $_SESSION['success_message']; ?>',
-            confirmButtonText: 'OK'
-        });
     </script>
-    <?php unset($_SESSION['success_message']); ?>
-<?php elseif (isset($_SESSION['error_message'])): ?>
-    <script>
-        Swal.fire({
-            icon: 'error',
-            title: 'Errore nella modifica',
-            text: '<?php echo $_SESSION['error_message']; ?>',
-            confirmButtonText: 'OK'
-        });
-    </script>
-    <?php unset($_SESSION['error_message']); ?>
-<?php endif; ?>
-
 </body>
 </html>
 
@@ -263,3 +240,5 @@ function togglePasswordVisibility(fieldId) {
     }
 }
 </script>
+
+
