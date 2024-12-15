@@ -58,18 +58,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <img src="/assets/img/m_avatar.png" alt="Avatar" class="img-fluid" style="width: 150px; border-radius: 50%;" />
                             <h5><?php echo $login_username; ?> <?php echo $login_surname; ?></h5>
                             
-                            <h6 class="mt-4">Personal Information</h6>
+                            <h6 class="mt-4">Informazioni su di te</h6>
                             <hr class="mt-0 mb-4">
 
                             <div class="row">
                                 <!-- Name, Surname, and Codice Fiscale (non-editable) -->
                                 <div class="d-flex justify-content-between mb-3">
                                     <div class="col-4 text-start">
-                                        <h6>Name</h6>
+                                        <h6>Nome</h6>
                                         <p class="text-muted"><?php echo $login_username; ?></p>
                                     </div>
                                     <div class="col-4 text-center">
-                                        <h6>Surname</h6>
+                                        <h6>Cognome</h6>
                                         <p class="text-muted"><?php echo $login_surname; ?></p>
                                     </div>
                                     <div class="col-4 text-end">
@@ -81,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <!-- Phone and Email with Edit Buttons -->
                                 <div class="d-flex justify-content-between mb-3">
                                     <div class="col-4 text-start">
-                                        <h6>Phone 
+                                        <h6>Telefono
                                             <button class="btn btn-link p-0 ms-2" style="font-size: 14px;" data-bs-toggle="modal" data-bs-target="#editPhoneModal">
                                                 <i class="bi bi-pencil-square" style="font-size: 16px;"></i>
                                             </button>
@@ -97,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <p class="text-muted" id="email"><?php echo $login_email; ?></p>
                                     </div>
                                     <div class="col-4 text-end">
-                                        <h6>Birth Date</h6>
+                                        <h6>Data di nascita</h6>
                                         <p class="text-muted"><?php echo $login_birth; ?></p>
                                     </div>
                                 </div>
@@ -106,7 +106,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                 </div>
             </div>
-            <p class="text-center mt-3 text-white">Edit Password 
+            <p class="text-center mt-3 text-white">Modifica Password 
                 <button class="btn btn-link p-0 ms-2" style="font-size: 14px;" data-bs-toggle="modal" data-bs-target="#editPasswModal">
                     <i class="bi bi-pencil-square" style="font-size: 16px;"></i>
                 </button>
@@ -125,16 +125,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="editPhoneModalLabel">Edit Phone Number</h5>
+        <h5 class="modal-title" id="editPhoneModalLabel">Modifica numero di telefono</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form method="POST">
           <div class="mb-3">
-            <label for="newPhone" class="form-label">Current Phone Number: <?php echo $login_tel; ?></label>
+            <label for="newPhone" class="form-label">Numero attuale: <?php echo $login_tel; ?></label>
             <input type="text" class="form-control" id="newPhone" name="newPhone" placeholder="Enter new phone number" required>
           </div>
-          <button type="submit" class="btn btn-primary" name="modTelButton">Save Changes</button>
+          <button type="submit" class="btn btn-primary" name="modTelButton">Salva</button>
         </form>
       </div>
     </div>
@@ -146,16 +146,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="editEmailModalLabel">Edit Email</h5>
+        <h5 class="modal-title" id="editEmailModalLabel">Modifica Email</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form method="POST">
           <div class="mb-3">
-            <label for="newEmail" class="form-label">Current Email: <?php echo $login_email; ?></label>
+            <label for="newEmail" class="form-label">Email attuale: <?php echo $login_email; ?></label>
             <input type="email" class="form-control" id="newEmail" name="newEmail" placeholder="Enter new email" required>
           </div>
-          <button type="submit" class="btn btn-primary" name="modEmailButton">Save Changes</button>
+          <button type="submit" class="btn btn-primary" name="modEmailButton">Salva</button>
         </form>
       </div>
     </div>
@@ -168,27 +168,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="editPasswModalLabel">Edit Password</h5>
+        <h5 class="modal-title" id="editPasswModalLabel">Modifica Password</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form method="POST">
           <!-- Old Password Field -->
           <div class="mb-3 position-relative">
-            <input type="password" class="form-control" id="oldPassw" name="oldPassw" placeholder="Enter old password" required>
+            <input type="password" class="form-control" id="oldPassw" name="oldPassw" placeholder="Vecchia password" required>
             <button type="button" class="btn btn-sm btn-link position-absolute" style="top: 50%; transform: translateY(-50%); right: 10px;" onclick="togglePasswordVisibility('oldPassw')">
               <i class="bi bi-eye-slash" id="toggleIcon-oldPassw"></i>
             </button>
           </div>
           <!-- New Password Field -->
           <div class="mb-3 position-relative">
-            <input type="password" class="form-control" id="newPassw" name="newPassw" placeholder="Enter new password" required>
+            <input type="password" class="form-control" id="newPassw" name="newPassw" placeholder="Nuova password" required>
             <button type="button" class="btn btn-sm btn-link position-absolute" style="top: 50%; transform: translateY(-50%); right: 10px;" onclick="togglePasswordVisibility('newPassw')">
               <i class="bi bi-eye-slash" id="toggleIcon-newPassw"></i>
             </button>
           </div>
           <!-- Submit Button -->
-          <button type="submit" class="btn btn-primary" name="modPasswButton">Save Changes</button>
+          <button type="submit" class="btn btn-primary" name="modPasswButton">Salva</button>
         </form>
       </div>
     </div>
