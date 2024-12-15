@@ -81,7 +81,7 @@ CREATE TABLE CARRELLO (
 CREATE TABLE ORDINE (
 
     Ordine_id VARCHAR (255) PRIMARY KEY,
-    Data_ordine DATA NOT NULL
+    Data_ordine DATE NOT NULL
     
 );
 
