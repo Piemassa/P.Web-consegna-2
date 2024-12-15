@@ -44,7 +44,7 @@ CREATE TABLE SERVIZIO (
 
 );
 
-CREATE TABLE CORSI (
+CREATE TABLE CORSO (
 
     Corsi_Nome VARCHAR(32),
     Corso_Operatore_Nome VARCHAR(32),
