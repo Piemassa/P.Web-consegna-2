@@ -30,7 +30,7 @@ CREATE TABLE SALA (
     Sala_Nome VARCHAR (32),
     Sala_capienza INT(20),
     Prodotto_id VARCHAR(255) PRIMARY KEY,
-    FOREIGN KEY (Prodotto_id) REFERENCES PRODOTTO(Prodotto_id) ON DELETE CASCADE
+    FOREIGN KEY (Prodotto_id) REFERENCES PRODOTTO(Prodotto_id)
 
 );
 
@@ -40,19 +40,18 @@ CREATE TABLE SERVIZIO (
     Servizio_Operatore_Nome VARCHAR(32),
     Servizio_Operatore_Cognome VARCHAR(32),
     Prodotto_id VARCHAR(255) PRIMARY KEY,
-    FOREIGN KEY (Prodotto_id) REFERENCES PRODOTTO(Prodotto_id) ON DELETE CASCADE
+    FOREIGN KEY (Prodotto_id) REFERENCES PRODOTTO(Prodotto_id)
 
 );
 
-CREATE TABLE CORSO (
+CREATE TABLE CORSI (
 
     Corsi_Nome VARCHAR(32),
     Corso_Operatore_Nome VARCHAR(32),
     Corso_Operatore_Cognome VARCHAR(32),
     Corso_Data VARCHAR(32),
     Prodotto_id VARCHAR(255) PRIMARY KEY,
-    N_Lez INT(32),
-    FOREIGN KEY (Prodotto_id) REFERENCES PRODOTTO(Prodotto_id) ON DELETE CASCADE
+    FOREIGN KEY (Prodotto_id) REFERENCES PRODOTTO(Prodotto_id)
 
 );
 
@@ -74,8 +73,8 @@ CREATE TABLE CARRELLO (
     Prodotto_id VARCHAR(255),
     U_cf VARCHAR(16),
     PRIMARY KEY (Prodotto_id, U_cf),
-    FOREIGN KEY (Prodotto_id) REFERENCES PRODOTTO(Prodotto_id) ON DELETE CASCADE,
-    FOREIGN KEY (U_cf) REFERENCES UTENTE(U_cf) ON DELETE CASCADE
+    FOREIGN KEY (Prodotto_id) REFERENCES PRODOTTO(Prodotto_id),
+    FOREIGN KEY (U_cf) REFERENCES UTENTE(U_cf)
 
 );
 
@@ -91,7 +90,7 @@ CREATE TABLE EFFETTUA (
     Ordine_id VARCHAR(255),
     U_cf VARCHAR(16),
     PRIMARY KEY (Ordine_id, U_cf),
-    FOREIGN KEY (Ordine_id) REFERENCES ORDINE(Ordine_id) ON DELETE CASCADE,
+    FOREIGN KEY (Ordine_id) REFERENCES ORDINE(Ordine_id),
     FOREIGN KEY (U_cf) REFERENCES UTENTE(U_cf)
 
 );
@@ -102,7 +101,7 @@ CREATE TABLE CONTIENE (
     Prodotto_id VARCHAR(255),
     Quantità_di_prodotto INT(100),
     PRIMARY KEY (Ordine_id, Prodotto_id),
-    FOREIGN KEY (Ordine_id) REFERENCES ORDINE(Ordine_id) ON DELETE CASCADE,
-    FOREIGN KEY (Prodotto_id) REFERENCES PRODOTTO(Prodotto_id) 
+    FOREIGN KEY (Ordine_id) REFERENCES ORDINE(Ordine_id),
+    FOREIGN KEY (Prodotto_id) REFERENCES PRODOTTO(Prodotto_id)
 
 );
