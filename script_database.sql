@@ -20,7 +20,8 @@ CREATE TABLE PRODOTTO(
     Prodotto_id VARCHAR(255) PRIMARY KEY,
     Prodotto_prezzo DECIMAL (7, 2) NOT NULL,
     Prodotto_immagine VARCHAR(255), 
-    Prodotto_descrizione VARCHAR (1000)
+    Prodotto_descrizione VARCHAR (1000),
+    hot TINYINT(1) NOT NULL
 
 );
 
@@ -81,18 +82,9 @@ CREATE TABLE CARRELLO (
 CREATE TABLE ORDINE (
 
     Ordine_id VARCHAR (255) PRIMARY KEY,
-    Data_ordine DATE NOT NULL
-    
-);
-
-CREATE TABLE EFFETTUA (
-
-    Ordine_id VARCHAR(255),
-    U_cf VARCHAR(16),
-    PRIMARY KEY (Ordine_id, U_cf),
-    FOREIGN KEY (Ordine_id) REFERENCES ORDINE(Ordine_id),
-    FOREIGN KEY (U_cf) REFERENCES UTENTE(U_cf)
-
+    Data_ordine DATE NOT NULL,
+    cf_cliente VARCHAR (16) NOT NULL,
+    FOREIGN KEY (cf_cliente) REFERENCES UTENTE(U_cf)
 );
 
 CREATE TABLE CONTIENE (

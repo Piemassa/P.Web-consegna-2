@@ -12,13 +12,14 @@ if (isset($login_email)) {
      ';
  
     }else if ($login_type == 'proprietario'){
-
         echo '
         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-             <div class="text-center">
-                 <a class="btn btn-outline-dark mt-auto me-2" href="#">Modifica</a>
-                 <a class="btn btn-outline-dark mt-auto" href="#">Elimina</a>
-             </div>
+            <div class="text-center">
+                <button id="'.$id_prodotto.'" onclick="openModalModButton(this)" class="btn btn-outline-dark btn-lg">Modifica</button>
+                <form method="post">
+                    <button type="submit" name="act" value="delprod_'.$id_prodotto.'" class="btn btn-outline-dark">Elimina</button>
+                </form>
+            </div>
          </div>
      '; 
 

@@ -1,7 +1,7 @@
 
 <?php 
             include("assets/php/allstyle.html");
-      ?>
+?>
        
        <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
