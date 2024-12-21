@@ -16,8 +16,10 @@ if (isset($login_email)) {
         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
             <div class="text-center">
                 <button id="'.$id_prodotto.'" onclick="openModalModButton(this)" class="btn btn-outline-dark btn-lg">Modifica</button>
-                <form method="post">
-                    <button type="submit" name="act" value="delprod_'.$id_prodotto.'" class="btn btn-outline-dark">Elimina</button>
+            
+                <form id="deleteForm'.$id_prodotto.'" method="post">
+                    <button type="button" id="'.$id_prodotto.'" onclick="confirmDelete(this)" class="btn btn-outline-dark">Elimina</button>
+                    <input type="hidden" name="act" value="delprod_'.$id_prodotto.'">
                 </form>
             </div>
          </div>
@@ -39,3 +41,12 @@ if (isset($login_email)) {
     '; 
 }
 ?>
+<script>
+        function confirmDelete(whocalled) {
+            
+            let confirmation = confirm("Sei sicuro di voler eliminare?");
+            if (confirmation) {
+                document.getElementById('deleteForm' + whocalled.id).submit();
+            }
+        }
+</script>
